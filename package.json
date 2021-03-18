@@ -1,0 +1,50 @@
+{
+  "name": "@kousaku-maron/library-ts-template",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "https://github.com/kousaku-maron/library-ts-template.git",
+  "author": "kosaku kurino <kousaku.maron@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --project tsconfig.lib.json --module commonjs",
+    "deploy": "yarn publish",
+    "publish": "yarn build && yarn deploy",
+    "prepublishOnly": "yarn build",
+    "lint": "yarn eslint './**/*.ts'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint './**/*.ts'"
+    ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.4",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+  }
+}
